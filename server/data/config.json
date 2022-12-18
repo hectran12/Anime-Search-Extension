@@ -1,0 +1,8 @@
+{
+  "url_web_xem_alime": {
+    "animevietsub": "http://animevietsub.pro/tim-kiem/bocchi/{find}",
+    "vuighe": "https://vuighe.net/tim-kiem/{find}",
+    "animehay": "https://animehay.pro/tim-kiem/{find}.html",
+    "anime47": "https://anime47.com/tim-nang-cao/?keyword={find}&nam=&season=&status=&sapxep=1"
+  }
+}
