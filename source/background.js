@@ -20,6 +20,7 @@ chrome.runtime.onInstalled.addListener((details) => {
     })
 
     chrome.contextMenus.onClicked.addListener((event) => {
+        console.log(event);
         chrome.storage.local.set({
             type: event.menuItemId,
             search_key_words: event.selectionText
@@ -30,5 +31,7 @@ chrome.runtime.onInstalled.addListener((details) => {
 
     
 });
+
+
 
 
