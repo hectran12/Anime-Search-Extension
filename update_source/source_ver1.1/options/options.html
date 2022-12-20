@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <title>Trang cài đặt</title>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>Trang cài đặt</h1>
+    <hr>
+    <h3 style="text-align:center">1. Mục đọc to</h3>
+    <hr>
+    <form>
+      <div class="form-group">
+        <label for="languageSetting">Chỉnh tự động nói:</label>
+        <select class="form-control" id="languageSetting">
+          <option>Tự động nhận biết ngôn ngữ</option>
+          <option>Chỉnh mặc định duy nhất 1 ngôn ngữ</option>
+        </select>
+      </div>
+      <div class="form-group" id="fixedLanguageDiv" style="display:none;">
+        <label for="fixedLanguageInput">Chất giọng:</label>
+        <select id="fixedLanguageInput" name="fixedLanguageInput" class="form-control">
+          
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="speech-rate">Tốc độ nói:</label>
+        <select id="speech-rate" name="speech-rate" class="form-control">
+          <option value="0">Ngừng</option>
+          <option value="1">Bình thường</option>
+          <option value="1.5">Nhanh hơn</option>
+          <option value="2">Rất nhanh</option>
+        </select>
+      </div>
+      
+      <button type="submit" class="btn btn-primary" id="save">Lưu</button>
+
+    </form>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
