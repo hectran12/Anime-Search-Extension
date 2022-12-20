@@ -36,11 +36,17 @@ if (page.includes('speak_text')) {
         });
     }
     var btnSpeak = document.getElementById('speak');
+    var btnStop = document.getElementById('stop');
+    var btnResume = document.getElementById('resume');
+    var btnPause = document.getElementById('pause');
     let text = document.getElementById('text');
     let speed = document.getElementById('speech-rate');
     btnSpeak.addEventListener('click', ()=>{
-        if(text.length > 1) {
-                alert('Vui lòng nhập nhiều hơn 1 kí tự');
+        document.getElementById('status').className = 'alert alert-success';
+        document.getElementById('status').textContent = 'Đang đọc...';
+        if(text.value.length < 1) {
+            document.getElementById('status').className = 'alert alert-secondary';
+            document.getElementById('status').textContent = 'Vui lòng nhập dài hơn 1 kí tự';
         } else {
                 chrome.storage.local.set({
                     speechRate: speed.value,
@@ -50,6 +56,21 @@ if (page.includes('speak_text')) {
                 speak_text(text.value);
         }
     });
+    btnPause.addEventListener('click', ()=>{
+        chrome.tts.pause();
+        document.getElementById('status').className = 'alert alert-warning';
+        document.getElementById('status').textContent = 'Đã vào chế độ chờ.';
+    });
+    btnResume.addEventListener('click', ()=>{
+        chrome.tts.resume();
+        document.getElementById('status').className = 'alert alert-success';
+        document.getElementById('status').textContent = 'Đang tiếp tục';
+    });
+    btnStop.addEventListener('click', ()=>{
+        chrome.tts.stop();
+        document.getElementById('status').className = 'alert alert-secondary';
+        document.getElementById('status').textContent = 'Đã ngừng đọc.';
+    })
     
 }
 
@@ -80,6 +101,14 @@ function changeThemeToTTS () {
         </select>
       </div>
     <button type="button" id="speak" class="btn btn-primary">Đọc</button>
+    <button type="button" id="stop" class="btn btn-danger">Ngưng</button>
+    <button type="button" id="pause" class="btn btn-warning">Ngưng tạm thời</button>
+    <button type="button" id="resume" class="btn btn-success">Tiếp</button>
+    <hr>
+    <div id="status" class="alert alert-light" role="alert">
+    
+    </div>
+    
     <hr>
     <div class="card">
   <img src="../bg-tts.png" class="card-img-top" alt="...">
@@ -123,7 +152,9 @@ function speak_text (content) {
         });
         
     } else {
-        alert('Chưa xác định được.')
+    
+        document.getElementById('status').className = 'alert alert-danger';
+        document.getElementById('status').textContent = 'Chưa xác định được';
     }
 
     
@@ -145,7 +176,8 @@ function speak (content, lang, speed) {
                     rate: Number.parseInt(speed),
                     lang: langs
                 });
-                console.log('thành công');
+                document.getElementById('status').className = 'alert alert-info';
+                document.getElementById('status').textContent = 'Đọc xong rồi.';
                 status_action = true;
                 break;
             }
