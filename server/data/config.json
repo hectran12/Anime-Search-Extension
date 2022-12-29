@@ -3,6 +3,7 @@
     "animevietsub": "http://animevietsub.pro/tim-kiem/{find}",
     "vuighe": "https://vuighe.net/tim-kiem/{find}",
     "animehay": "https://animehay.pro/tim-kiem/{find}.html",
-    "anime47": "https://anime47.com/tim-nang-cao/?keyword={find}&nam=&season=&status=&sapxep=1"
+    "anime47": "https://anime47.com/tim-nang-cao/?keyword={find}&nam=&season=&status=&sapxep=1",
+    "tocanime": "https://tocanime.co/content/search?t=kw&q={find}"
   }
 }
